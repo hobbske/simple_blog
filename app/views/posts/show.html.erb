@@ -1,12 +1,19 @@
-<h1 class="title">
-	<%= @post.title %>
-</h1>
+<div class="row">
 
-<p class="date">
-	Submitted <%= time_ago_in_words(@post.created_at) %> ago
-</p>
+	<div class="well">
+		<h1 class="title">
+			<strong><%= @post.title %></strong>
+		</h1>
 
-<p class="body">
-	<%= @post.body %>
-</p>
+		<p class="date">
+			Submitted <%= time_ago_in_words(@post.created_at) %> ago
+		</p>
 
+		<h3 class="body">
+			<%= @post.body %>
+		</h3>
+
+		<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning' %>
+		<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+	</div>
+</div>
